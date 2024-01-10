@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #leaderboard {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #leaderboard-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div id="leaderboard">
+    <h1>Leaderboard</h1>
+    <ul id="leaderboard-list"></ul>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const leaderboardList = document.getElementById('leaderboard-list');
+
+        // Sample data (replace with your own data or fetch from an API)
+        const leaderboardData = [
+            { name: 'Player 1', score: 120 },
+            { name: 'Player 2', score: 90 },
+            { name: 'Player 3', score: 150 },
+            { name: 'Player 4', score: 80 },
+        ];
+
+        // Populate the leaderboard
+        leaderboardData.forEach((entry, index) => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `<span>${index + 1}. ${entry.name}</span><span>${entry.score} points</span>`;
+            leaderboardList.appendChild(listItem);
+        });
+    });
+</script>
+
+</body>
+</html>
